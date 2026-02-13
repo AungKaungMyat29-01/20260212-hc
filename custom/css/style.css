@@ -1,0 +1,318 @@
+@charset "UTF-8";
+
+/* ====================
+   ダークテーマ変数の定義
+==================== */
+:root {
+  --bg-main: #121212;       /* 全体の背景色（深い黒） */
+  --bg-secondary: #1e1e1e;  /* カードなどの背景色（少し明るい黒） */
+  --text-primary: #e0e0e0;  /* メインの文字色（オフホワイト） */
+  --text-secondary: #a0a0a0;/* 補足の文字色（グレー） */
+  --accent-color: #f39c12;  /* アクセントカラー（オレンジ） */
+}
+
+/* ====================
+   基本設定
+==================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  color: var(--text-primary);
+  background: var(--bg-main);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+/* ====================
+   ヘッダー
+==================== */
+header {
+  padding: 120px 0;
+  /* グラデーションで少しリッチな雰囲気に */
+  background: linear-gradient(to bottom, #2c2c2c, var(--bg-main));
+  color: var(--text-primary);
+  text-align: center;
+  border-bottom: 1px solid #333;
+}
+
+header h1 {
+  font-size: 48px;
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+header p {
+  font-size: 18px;
+  color: var(--accent-color); /* アクセントカラーを使用 */
+  font-weight: 700;
+}
+
+/* ====================
+   メインセクション共通
+==================== */
+section {
+  padding: 80px 0;
+}
+
+h2 {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 60px;
+  letter-spacing: 0.1em;
+  width: 100%;
+  color: var(--text-primary);
+  position: relative;
+}
+
+/* 見出しの下にアクセントカラーの線を追加 */
+h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--accent-color);
+  margin: 15px auto 0;
+}
+
+/* ====================
+   プロフィール
+==================== */
+#profile {
+  max-width: 800px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.profile-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  /* カード風のデザインに変更 */
+  background: var(--bg-secondary);
+  padding: 40px;
+  border-radius: 16px;
+  border: 1px solid #333;
+}
+
+#profile img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--bg-main); /*枠線を追加*/
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.profile-text {
+  flex: 1;
+}
+
+.profile-name {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: var(--accent-color);
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.profile-description {
+    color: var(--text-secondary);
+}
+
+/* ====================
+   スキル
+==================== */
+#skill {
+  background: #0a0a0a; /* 背景を少し変えてセクションを区別 */
+}
+
+.skill-items {
+  max-width: 1000px;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  list-style: none;
+}
+
+.skill-item {
+  width: 300px;
+  background: var(--bg-secondary); /* ダークなカード背景 */
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid #333; /* 薄い枠線 */
+  transition: 0.3s;
+}
+
+/* ホバー時に少し浮き上がり、枠線が光る */
+.skill-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+    box-shadow: 0 5px 15px rgba(243, 156, 18, 0.2);
+}
+
+.skill-item img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 15px;
+  /* アイコンを少し明るく調整（任意） */
+  filter: drop-shadow(0 2px 4px rgba(255,255,255,0.1));
+}
+
+.skill-item h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+
+.skill-rate {
+  color: var(--accent-color);
+  font-size: 20px;
+  margin-bottom: 15px;
+  letter-spacing: 5px;
+}
+
+.skill-desc {
+  font-size: 14px;
+  text-align: left;
+  color: var(--text-secondary);
+}
+
+/* ====================
+   Works (作品)
+==================== */
+#works {
+  max-width: 1100px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.work-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+
+.work-item {
+  width: 48%;
+  margin-bottom: 20px;
+  background: var(--bg-secondary);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #333;
+  transition: 0.3s;
+}
+
+/* ホバー時のエフェクト */
+.work-item:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 5px 15px rgba(243, 156, 18, 0.2);
+}
+
+.work-thumb {
+  width: 100%;
+  height: 250px; /* 高さを少し調整 */
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  opacity: 0.9;
+  transition: opacity 0.3s;
+}
+
+.work-item:hover .work-thumb {
+  opacity: 1;
+}
+
+#works h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* リンクボタン (ダークテーマ仕様) */
+.work-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.work-links a {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  background: #333; /* ボタンの背景 */
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 13px;
+  border-radius: 4px;
+  transition: all 0.3s;
+  border: 1px solid transparent;
+}
+
+.work-links a:hover {
+  background: var(--accent-color); /* ホバー時にアクセントカラーに */
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(243, 156, 18, 0.4);
+}
+
+.work-links img {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+/* ====================
+   フッター
+==================== */
+footer {
+  background: #080808;
+  color: var(--text-secondary);
+  text-align: center;
+  padding: 30px 0;
+  border-top: 1px solid #333;
+}
+
+.copyright {
+  font-size: 14px;
+}
+
+/* ====================
+   スマホ対応 (レスポンシブ)
+==================== */
+@media screen and (max-width: 768px) {
+  header { padding: 80px 0; }
+  header h1 { font-size: 32px; }
+  section { padding: 60px 0; }
+  h2 { margin-bottom: 40px; }
+
+  .profile-content {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
+    gap: 30px;
+  }
+
+  .skill-item, .work-item {
+    width: 100%; /* スマホでは1列表示 */
+  }
+  
+  .work-thumb { height: 200px; }
+}
